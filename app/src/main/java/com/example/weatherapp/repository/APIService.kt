@@ -8,7 +8,7 @@ import retrofit2.http.Url
 interface APIService {
 
     @GET
-    fun getWeather(
+    suspend fun getWeather(
         @Url url: String,
         @Query("q") area: String,
         @Query("APPID") appId: String
