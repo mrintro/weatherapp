@@ -30,10 +30,9 @@ class GlobalViewModel : ViewModel(), DefaultLifecycleObserver {
                 showError.value = true
                 Log.d("TAG", "Error true ${it.message}")
             }, {
-
                 showLoading.value = false
                 it.main?.temp?.let {temperature ->
-                    Log.d("TAG", "Error false $temperature")
+                    Log.d("TAG", "Error false $it")
                     weatherTemperature.value = temperature
                     showError.value = false
                 } ?: kotlin.run{

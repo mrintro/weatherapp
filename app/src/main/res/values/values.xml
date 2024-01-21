@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textAppearanceSemiBoldBlack" format="reference" />
+    <attr name="textAppearanceSemiBoldWhite" format="reference" />
+    <attr name="textAppearanceBoldBlack" format="reference" />
+    <attr name="textAppearanceRegularBlack" format="reference" />
+</resources>

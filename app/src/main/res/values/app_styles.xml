@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.AppCompat.BoldBlack" parent="TextAppearance.AppCompat.Headline">
+        <item name="fontFamily">@font/noyhr_bold</item>
+        <item name="color">@color/primary_black</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.RegularBlack" parent="TextAppearance.AppCompat.Headline">
+        <item name="fontFamily">@font/noyhr_regular</item>
+        <item name="color">@color/primary_black</item>
+    </style>
+
+    <style name="SemiBoldBlack" parent="TextAppearance.AppCompat.Headline">
+        <item name="fontFamily">@font/noyhr_medium</item>
+        <item name="color">@color/primary_black</item>
+    </style>
+
+    <style name="SemiBoldWhite" parent="TextAppearance.AppCompat.Headline">
+        <item name="fontFamily">@font/noyhr_medium</item>
+        <item name="color">@color/secondary_white</item>
+    </style>
+
+</resources>

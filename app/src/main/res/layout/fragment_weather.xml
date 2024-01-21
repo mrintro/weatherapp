@@ -2,75 +2,110 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.weatherapp.viewmodel.GlobalViewModel" />
     </data>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.WeatherFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/header"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
 
-            <TextView
-                android:id="@+id/temperature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="56dp"
-                android:textSize="96sp"
-                android:text="@{viewModel.weatherTemperature.toString()}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/locationText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/temperature"
-                android:layout_marginTop="16dp"
-                android:textSize="36sp"
-                android:text="Bangalore"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/header2"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="parent">
+                android:fitsSystemWindows="true"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-                <TextView
-                    android:id="@+id/temperature2"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_scrollFlags="scroll">
+
+                    <ImageView
+                        android:id="@+id/weatherImage"
+                        android:layout_width="@dimen/dimen_0"
+                        android:layout_height="@dimen/dimen_0"
+                        app:layout_constraintDimensionRatio="H, 3:4"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/cloudy_sunset" />
+
+                    
+                    <TextView
+                        android:id="@+id/weather_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textColor="@color/secondary_white"
+                        android:textSize="@dimen/text_size_32"
+                        android:textAppearance="?attr/textAppearanceBoldBlack"
+                        android:layout_marginTop="@dimen/app_standard_margin_x_extra_large"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/locationText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/app_standard_margin_small"
+                        android:textAppearance="?attr/textAppearanceSemiBoldBlack"
+                        android:textColor="@color/secondary_white"
+                        android:text="Bangalore"
+                        android:textSize="@dimen/text_size_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/weather_type" />
+
+                    <TextView
+                        android:id="@+id/temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/app_standard_margin_small"
+                        android:textColor="@color/secondary_white"
+                        android:textAppearance="?attr/textAppearanceBoldBlack"
+                        android:text="@{viewModel.weatherTemperature.toString()}"
+                        android:textSize="@dimen/text_size_96"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/locationText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="56dp"
-                    android:textSize="96sp"
-                    android:text="@{viewModel.weatherTemperature.toString()}"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:layout_marginTop="@dimen/app_standard_margin_large"
+                    app:tabGravity="start"
+                    app:tabMode="scrollable"
+                    app:tabTextColor="@color/app_grey"
+                    app:tabSelectedTextColor="@color/primary_black" />
 
-                <TextView
-                    android:id="@+id/locationText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/temperature2"
-                    android:layout_marginTop="16dp"
-                    android:textSize="36sp"
-                    android:text="Bangalore"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+            </com.google.android.material.appbar.AppBarLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

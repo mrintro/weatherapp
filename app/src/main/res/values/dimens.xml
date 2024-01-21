@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_standard_logo_small">100dp</dimen>
+    <dimen name="app_standard_margin_large">32dp</dimen>
+    <dimen name="app_standard_margin_extra_large">48dp</dimen>
+    <dimen name="app_standard_margin_x_extra_large">96dp</dimen>
+    <dimen name="app_standard_margin">24dp</dimen>
+    <dimen name="app_standard_margin_small_12">12dp</dimen>
+    <dimen name="app_standard_margin_small">16dp</dimen>
+    <dimen name="app_standard_margin_extra_small">8dp</dimen>
+    <dimen name="app_standard_margin_extra_small_4">4dp</dimen>
+
+    <!--    dimens-->
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimen_4">4dp</dimen>
+    <dimen name="dimen_5">5dp</dimen>
+    <dimen name="dimen_6">6dp</dimen>
+    <dimen name="dimen_7">7dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_9">9dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_11">11dp</dimen>
+    <dimen name="dimen_12">12dp</dimen>
+    <dimen name="dimen_13">13dp</dimen>
+    <dimen name="dimen_14">14dp</dimen>
+    <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_17">17dp</dimen>
+    <dimen name="dimen_18">18dp</dimen>
+    <dimen name="dimen_19">19dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
+    <dimen name="dimen_28">28dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+
+    <!--    font dimens-->
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_32">32sp</dimen>
+    <dimen name="text_size_48">48sp</dimen>
+    <dimen name="text_size_96">96sp</dimen>
+</resources>

@@ -11,7 +11,8 @@ interface APIService {
     suspend fun getWeather(
         @Url url: String,
         @Query("q") area: String,
-        @Query("APPID") appId: String
+        @Query("APPID") appId: String,
+        @Query("units") units: String = "Metric"
     ): WeatherResponse
 
 }
