@@ -1,5 +1,8 @@
 package com.example.weatherapp.di.module
 
+import android.app.Application
+import androidx.room.Room
+import com.example.weatherapp.data.WeatherDatabase
 import com.example.weatherapp.di.annotations.ApplicationScope
 import com.example.weatherapp.repository.APIService
 import com.example.weatherapp.repository.ProjectRepository
@@ -26,6 +29,14 @@ class ApplicationModule {
     @ApplicationScope
     @Provides
     fun getProjectRepository(
-        service: APIService
-    ) = ProjectRepository(service)
+        service: APIService,
+        weatherDatabase: WeatherDatabase
+    ) = ProjectRepository(service, weatherDatabase)
+
+    @ApplicationScope
+    @Provides
+    fun provideWeatherDataBase(app: Application): WeatherDatabase =
+        Room.databaseBuilder(app, WeatherDatabase::class.java, "weather_database")
+            .build()
+
 }

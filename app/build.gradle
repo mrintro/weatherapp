@@ -73,4 +73,12 @@ dependencies {
     def dagger_version = "2.40"
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //Room dependencies
+    def room_version = "2.6.1"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // To use Kotlin Symbol Processing (KAPT)
+    kapt "androidx.room:room-compiler:$room_version"
 }
