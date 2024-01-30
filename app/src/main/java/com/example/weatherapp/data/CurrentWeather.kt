@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "current_weather")
 data class CurrentWeather(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val temp: Float,
+    var id: Int = 0,
+    val temp: String,
     val areaName: String,
     val lat: Float,
     val long: Float,

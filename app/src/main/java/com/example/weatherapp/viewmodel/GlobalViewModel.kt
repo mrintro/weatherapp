@@ -18,8 +18,7 @@ class GlobalViewModel : ViewModel(), DefaultLifecycleObserver {
 
     val showError = MutableLiveData<Boolean>(false)
 
-    override fun onCreate(owner: LifecycleOwner) {
-        super.onCreate(owner)
+    init {
         getWeatherData()
     }
 
