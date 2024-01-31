@@ -14,6 +14,6 @@ interface APIService {
         @Query("q") area: String,
         @Query("APPID") appId: String,
         @Query("units") units: String = "Metric"
-    ): Flow<WeatherResponse>
+    ): WeatherResponse
 
 }

@@ -9,8 +9,7 @@ import kotlinx.coroutines.flow.map
 inline fun <ResultType, RequestType> networkBoundResource(
     crossinline query: () -> Flow<ResultType>,
     crossinline fetch: suspend () -> RequestType,
-    crossinline saveFetchResult: suspend (ResultType) -> Unit,
-    crossinline mapper: RequestType.() -> ResultType,
+    crossinline saveFetchResult: suspend (RequestType) -> Unit,
     crossinline shouldFetch: (ResultType) -> Boolean = {true}
 ) = flow {
     val data = query().first()
@@ -19,7 +18,7 @@ inline fun <ResultType, RequestType> networkBoundResource(
         emit(Resources.Loading(data))
 
         try {
-            saveFetchResult(mapper(fetch()))
+            saveFetchResult(fetch())
             query().map { Resources.Success(it) }
         } catch (throwable: Throwable) {
             query().map { Resources.Error(throwable, data) }

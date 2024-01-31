@@ -29,18 +29,14 @@ class ProjectRepository(
             weatherDao.getCurrentWeather()
         },
         fetch = {
-            service.getWeather(url, "Bengaluru", "9b8cb8c7f11c077f8c4e217974d9ee40").first()
+            service.getWeather(url, "Bengaluru", "9b8cb8c7f11c077f8c4e217974d9ee40")
         },
         saveFetchResult = {
             weatherDatabase.withTransaction {
                 weatherDao.deleteCurrentWeather()
-                weatherDao.insertCurrentWeatherData(it)
+                weatherDao.insertCurrentWeatherData(it.mapToCurrentWeather())
             }
-        },
-        mapper = {
-            mapToCurrentWeather()
         }
     )
-
 
 }

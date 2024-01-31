@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface WeatherDao {
 
-    @Query("SELECT FIRST(id) from current_weather")
-    fun getCurrentWeather(): Flow<CurrentWeather>
+    @Query("SELECT * from current_weather")
+    fun getCurrentWeather(): Flow<List<CurrentWeather>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCurrentWeatherData(currentWeather: CurrentWeather)

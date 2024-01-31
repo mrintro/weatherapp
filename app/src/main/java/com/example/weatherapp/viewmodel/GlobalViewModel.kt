@@ -4,13 +4,13 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.weatherapp.model.weatherresponse.WeatherResponse
 import com.example.weatherapp.repository.ProjectRepository
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class GlobalViewModel : ViewModel(), DefaultLifecycleObserver {
-
-    @Inject
-    lateinit var projectRepository: ProjectRepository
+class GlobalViewModel @Inject constructor(
+    private val projectRepository: ProjectRepository
+) : ViewModel(), DefaultLifecycleObserver {
 
     val weatherTemperature =  MutableLiveData<Double?>(null)
 
@@ -20,6 +20,7 @@ class GlobalViewModel : ViewModel(), DefaultLifecycleObserver {
 
     init {
         getWeatherData()
+
     }
 
     private fun getWeatherData() {
@@ -38,6 +39,14 @@ class GlobalViewModel : ViewModel(), DefaultLifecycleObserver {
                     showError.value = true
                 }
             })
+        }
+    }
+
+    private fun getOfflineFirstWeatherData() {
+        viewModelScope.launch {
+            projectRepository.getWeatherOffline().collect {
+
+            }
         }
     }
 

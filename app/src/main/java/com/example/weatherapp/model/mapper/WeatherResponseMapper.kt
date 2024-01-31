@@ -4,6 +4,7 @@ import com.example.weatherapp.data.CurrentWeather
 import com.example.weatherapp.model.weatherresponse.WeatherResponse
 
 fun WeatherResponse.mapToCurrentWeather() = CurrentWeather(
+    id = id ?: 0,
     temp = main?.temp?.toString()?.let { "$it degree" }  ?: "NA",
     areaName = name ?: "NA",
     feelsLike = main?.feels_like.toString() ?: "NA",
